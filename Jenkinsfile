@@ -10,7 +10,9 @@ node {
     }
   }
   stage("Test"){
-    sh './jenkins/scripts/test.sh'
+    image.inside('-p 3000:3000'){
+      sh './jenkins/scripts/test.sh'
+    }
   }
 }
 
