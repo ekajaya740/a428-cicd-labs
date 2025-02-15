@@ -1,5 +1,10 @@
 node {
   def image
+  stage('Checkout') {
+    steps {
+      checkout scm
+    }
+  }
   stage('Pull Image'){
     image = docker.image('node:16-buster-slim')
     image.pull()
@@ -15,4 +20,5 @@ node {
     }
   }
 }
+
 
